@@ -10,7 +10,7 @@ fix_seed = 2021
 random.seed(fix_seed)
 torch.manual_seed(fix_seed)
 np.random.seed(fix_seed)
-parser = argparse.ArgumentParser(description='HADT & other models for Time Series Forecasting')
+parser = argparse.ArgumentParser(description='HADL & other models for Time Series Forecasting')
 
 # basic config
 parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
@@ -98,12 +98,6 @@ parser.add_argument('--dw_dims', nargs='+',type=int, default=[256,256,256,256])
 parser.add_argument('--small_kernel_merged', type=str2bool, default=False, help='small_kernel has already merged or not')
 parser.add_argument('--call_structural_reparam', type=bool, default=False, help='structural_reparam after training')
 parser.add_argument('--use_multi_scale', type=str2bool, default=True, help='use_multi_scale fusion')
-
-# For WITRAN
-parser.add_argument('--WITRAN_deal', type=str, default='None', 
-    help='WITRAN deal data type, options:[None, standard]')
-parser.add_argument('--WITRAN_grid_cols', type=int, default=24, 
-    help='Numbers of data grid cols for WITRAN')
 
 
 # Formers 

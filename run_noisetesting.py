@@ -10,7 +10,7 @@ fix_seed = 2021
 random.seed(fix_seed)
 torch.manual_seed(fix_seed)
 np.random.seed(fix_seed)
-parser = argparse.ArgumentParser(description='HADT & other models for Time Series Forecasting')
+parser = argparse.ArgumentParser(description='HADL & other models for Time Series Forecasting')
 
 # basic config
 parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
