@@ -11,7 +11,7 @@ data_path_name=ETTh1.csv
 model_id_name=ETTh1
 data_name=ETTh1
 
-for noise_std in 0.0 0.1 0.3 0.5 0.7 
+for noise_std in 0.0 0.3 0.7 1.3 1.7 2.3 
 do
 for seq_len in 512
 do
@@ -39,7 +39,7 @@ do
       --patch_len 24\
       --stride 24\
       --des 'Exp' \
-      --train_epochs 1\
+      --train_epochs 50\
       --patience 10\
       --kernel_size 25\
       --pred_head_type 'truncation'\

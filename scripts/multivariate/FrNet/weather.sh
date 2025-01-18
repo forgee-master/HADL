@@ -40,7 +40,7 @@ do
       --patch_len 16\
       --stride 8\
       --des 'Exp' \
-      --train_epochs 100\
+      --train_epochs 50\
       --patience 10\
       --kernel_size 25\
       --lradj type3\

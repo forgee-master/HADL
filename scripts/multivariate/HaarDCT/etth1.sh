@@ -28,9 +28,9 @@ do
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 7 \
-      --train_epochs 100 \
+      --train_epochs 50 \
       --rank $rank \
-      --patience 20 \
+      --patience 10 \
       --des 'Exp' \
       --regularizer 1 --regularization_rate 0.1 \
       --itr 1 --batch_size 32 --learning_rate 0.01

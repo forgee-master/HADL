@@ -28,8 +28,8 @@ do
       --pred_len $pred_len \
       --period_len 16 \
       --enc_in 21 \
-      --train_epochs 100 \
-      --patience 20 \
+      --train_epochs 50 \
+      --patience 10 \
       --des 'Exp' \
       --model_type 'linear' \
       --itr 1 --batch_size 32 --learning_rate 0.01

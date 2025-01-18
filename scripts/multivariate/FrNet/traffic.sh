@@ -40,8 +40,8 @@ do
       --patch_len 16\
       --stride 8\
       --des 'Exp' \
-      --train_epochs 100\
-      --patience 20\
+      --train_epochs 50\
+      --patience 10\
       --kernel_size 25\
       --lradj type4\
       --pred_head_type 'linear'\

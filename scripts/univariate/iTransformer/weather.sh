@@ -7,9 +7,9 @@ fi
 model_name=iTransformer
 
 root_path_name=./dataset/
-data_path_name=ETTh1.csv
-model_id_name=ETTh1
-data_name=ETTh1
+data_path_name=weather.csv
+model_id_name=weather
+data_name=custom
 
 for seq_len in 512
 do
@@ -39,8 +39,8 @@ do
       --c_out 21 \
       --d_model $d_model \
       --d_ff $d_ff \
-      --train_epochs 100 \
-      --patience 20 \
+      --train_epochs 50 \
+      --patience 10 \
       --des 'Exp' \
       --itr 1 --batch_size 32 --learning_rate 0.0001
 done

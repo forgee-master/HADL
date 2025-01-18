@@ -11,7 +11,7 @@ data_path_name=ETTh2.csv
 model_id_name=ETTh2
 data_name=ETTh2
 
-for noise_std in 0.0 0.1 0.3 0.5 0.7 
+for noise_std in 0.0 0.3 0.7 1.3 1.7 2.3 
 do
 for seq_len in 512
 do
@@ -41,8 +41,8 @@ do
       --c_out 7 \
       --d_model $d_model \
       --d_ff $d_ff \
-      --train_epochs 1 \
-      --patience 20 \
+      --train_epochs 50 \
+      --patience 10 \
       --des 'Exp' \
       --itr 1 --batch_size 32 --learning_rate 0.0001
 done
