@@ -17,7 +17,7 @@ for noise_std in 0.0 0.3 0.7 1.3 1.7 2.3
 do
 for seq_len in 512
 do
-for pred_len in 96 192 336 720
+for pred_len in 192
 do
   python -u run_noisetesting.py \
     --is_training 1 \

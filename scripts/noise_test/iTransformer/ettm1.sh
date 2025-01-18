@@ -15,7 +15,7 @@ for noise_std in 0.0 0.3 0.7 1.3 1.7 2.3
 do
 for seq_len in 512
 do
-for pred_len in 96 192 336 720
+for pred_len in 192
 do    
     if [ $pred_len -eq 96 ] || [ $pred_len -eq 192 ]; then
       d_model=256
