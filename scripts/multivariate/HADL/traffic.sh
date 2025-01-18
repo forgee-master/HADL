@@ -33,8 +33,7 @@ do
     --patience 10 \
     --des 'Exp' \
      --regularizer 1 --regularization_rate 0.1 \
-    --itr 1 --batch_size 32 --learning_rate 0.01 \ 
-	--regularizer 1
+    --itr 1 --batch_size 32 --learning_rate 0.01 
 done
 done
 
