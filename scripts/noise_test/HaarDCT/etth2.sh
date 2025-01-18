@@ -35,7 +35,8 @@ do
       --train_epochs 50 \
       --rank $rank \
       --patience 10 \
-      --itr 1 --batch_size 32 --learning_rate 0.01
+      --itr 1 --batch_size 32 --learning_rate 0.01 \ 
+	--regularizer 1
 done
 done
 done

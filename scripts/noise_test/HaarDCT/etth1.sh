@@ -34,7 +34,8 @@ do
       --rank $rank \
       --patience 10 \
       --des 'Exp' \
-      --itr 1 --batch_size 32 --learning_rate 0.01
+      --itr 1 --batch_size 32 --learning_rate 0.01 \ 
+	--regularizer 1
 done
 done
 done
