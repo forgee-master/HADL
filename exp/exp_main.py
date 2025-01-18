@@ -540,10 +540,10 @@ class Exp_Main(Exp_Basic):
                         outputs = outputs[:, -self.args.pred_len:, f_dim:]
                         batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
                         
-                        if self.args.model in ('HaarDCT'):
-                            loss = criterion(outputs, batch_y) + 0.1 * torch.mean(torch.abs(outputs))
-                        else:
-                            loss = criterion(outputs, batch_y)
+                        if self.args.regularizer:
+                        loss = criterion(outputs, batch_y) + self.args.regularization_rate * torch.mean(torch.abs(outputs))
+                    else:
+                        loss = criterion(outputs, batch_y)
                         train_loss.append(loss.item())
 
                     if (i + 1) % 100 == 0:
