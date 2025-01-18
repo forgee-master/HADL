@@ -1,6 +1,6 @@
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from abalation_models import org_HaarDCT, wo_DCT, wo_LowRank, wo_Haar
+from abalation_models import org_HADL, wo_DCT, wo_LowRank, wo_Haar
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
 
@@ -28,7 +28,7 @@ class Exp_Main(Exp_Basic):
 
     def _build_model(self):
         model_dict = {
-            'HaarDCT': org_HaarDCT,
+            'HADL': org_HADL,
             'woDCT': wo_DCT,
             'woLowRank': wo_LowRank,
             'woHaar': wo_Haar
@@ -79,7 +79,7 @@ class Exp_Main(Exp_Basic):
                 # encoder - decoder
                 if self.args.use_amp:
                     with torch.cuda.amp.autocast():
-                        if self.args.model in ('HaarDCT', 'woDCT', 'woLowRank', 'woHaar'):
+                        if self.args.model in ('HADL', 'woDCT', 'woLowRank', 'woHaar'):
                             outputs = self.model(batch_x)
                         else:
                             if self.args.output_attention:
@@ -87,7 +87,7 @@ class Exp_Main(Exp_Basic):
                             else:
                                 outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
                 else:
-                    if self.args.model in ('HaarDCT','woDCT', 'woLowRank', 'woHaar'):
+                    if self.args.model in ('HADL','woDCT', 'woLowRank', 'woHaar'):
                         outputs = self.model(batch_x)
                     else:
                         if self.args.output_attention:
@@ -154,7 +154,7 @@ class Exp_Main(Exp_Basic):
                 # encoder - decoder
                 if self.args.use_amp:
                     with torch.cuda.amp.autocast():
-                        if self.args.model in ('HaarDCT','woDCT', 'woLowRank', 'woHaar'):
+                        if self.args.model in ('HADL','woDCT', 'woLowRank', 'woHaar'):
                             outputs = self.model(batch_x)
                         else:
                             if self.args.output_attention:
@@ -168,7 +168,7 @@ class Exp_Main(Exp_Basic):
                         loss = criterion(outputs, batch_y)
                         train_loss.append(loss.item())
                 else:
-                    if self.args.model in ('HaarDCT','woDCT', 'woLowRank', 'woHaar'):
+                    if self.args.model in ('HADL','woDCT', 'woLowRank', 'woHaar'):
                         if self.args.noise_train:
                             #print(" Noise training........")
                             noise = torch.randn_like(batch_x) * self.args.noise_std
@@ -185,7 +185,7 @@ class Exp_Main(Exp_Basic):
                     outputs = outputs[:, -self.args.pred_len:, f_dim:]
                     batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
                     
-                    if self.args.model in ('HaarDCT', 'woDCT', 'woLowRank', 'woHaar'):
+                    if self.args.model in ('HADL', 'woDCT', 'woLowRank', 'woHaar'):
                         # print("regularization...")
                         loss = criterion(outputs, batch_y) + 0.1 * torch.mean(torch.abs(outputs))
                     else:
@@ -264,7 +264,7 @@ class Exp_Main(Exp_Basic):
                 # encoder - decoder
                 if self.args.use_amp:
                     with torch.cuda.amp.autocast():
-                        if self.args.model in ('HaarDCT','woDCT', 'woLowRank', 'woHaar'):
+                        if self.args.model in ('HADL','woDCT', 'woLowRank', 'woHaar'):
                             outputs = self.model(batch_x)
                         else:
                             if self.args.output_attention:
@@ -272,7 +272,7 @@ class Exp_Main(Exp_Basic):
                             else:
                                 outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)
                 else:
-                    if self.args.model in ('HaarDCT','woDCT', 'woLowRank', 'woHaar'):
+                    if self.args.model in ('HADL','woDCT', 'woLowRank', 'woHaar'):
                         if self.args.noise_test:
                             #print(" Noise testing........")
                             noise = torch.randn_like(batch_x) * self.args.noise_std

@@ -15,7 +15,7 @@ parser = argparse.ArgumentParser(description='HADL & other models for Time Serie
 # basic config
 parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
 parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
-parser.add_argument('--model', type=str, required=True, default='HaarDCT', help='model name')
+parser.add_argument('--model', type=str, required=True, default='HADL', help='model name')
 parser.add_argument('--train_type', type=str, required=True, default="Linear", help="the method to calculate output: 1. Linear, 2. TCN")
 
 # data loader

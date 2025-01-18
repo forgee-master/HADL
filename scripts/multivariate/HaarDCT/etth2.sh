@@ -6,7 +6,7 @@ fi
 
 
 
-model_name=HaarDCT
+model_name=HADL
 
 root_path_name=./dataset/
 data_path_name=ETTh2.csv

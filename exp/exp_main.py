@@ -1,6 +1,6 @@
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models import HaarDCT, DLinear, ModernTCN, NLinear, PatchTST, FreTS, SparseTSF, iTransformer, FrNet
+from models import HADL, DLinear, ModernTCN, NLinear, PatchTST, FreTS, SparseTSF, iTransformer, FrNet
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
 
@@ -28,7 +28,7 @@ class Exp_Main(Exp_Basic):
 
     def _build_model(self):
         model_dict = {
-            'HaarDCT': HaarDCT,
+            'HADL': HADL,
             'DLinear': DLinear,
             'NLinear': NLinear,
             'PatchTST': PatchTST,

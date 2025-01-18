@@ -11,7 +11,7 @@ data_path_name=ETTh1.csv
 model_id_name=ETTh1
 data_name=ETTh1
 
-for model_name in woDCT HaarDCT
+for model_name in woDCT HADL
 do
 for pred_len in 96 192 336 720
 do    
@@ -39,7 +39,7 @@ data_path_name=ETTh2.csv
 model_id_name=ETTh2
 data_name=ETTh2
 
-for model_name in woDCT HaarDCT
+for model_name in woDCT HADL
 do
 for pred_len in 96 192 336 720
 do    

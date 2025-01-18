@@ -9,12 +9,12 @@ fix_seed = 2021
 random.seed(fix_seed)
 torch.manual_seed(fix_seed)
 np.random.seed(fix_seed)
-parser = argparse.ArgumentParser(description='HaarDCT & other models for Time Series Forecasting')
+parser = argparse.ArgumentParser(description='HADL & other models for Time Series Forecasting')
 
 # basic config
 parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
 parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
-parser.add_argument('--model', type=str, required=True, default='HaarDCT', help='model name')
+parser.add_argument('--model', type=str, required=True, default='HADL', help='model name')
 
 # data loader
 parser.add_argument('--data', type=str, required=True, default='ETTm1', help='dataset type')
