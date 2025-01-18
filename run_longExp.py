@@ -124,7 +124,7 @@ parser.add_argument('--do_predict', action='store_true', help='whether to predic
 
 #regularization
 parser.add_argument('--regularizer', type=int, default=0, help="initiate regularizer")
-parser.add_argument('--regularization_rate', type=int, default=0.1, help="add the rate of L1 regularization.")
+parser.add_argument('--regularization_rate', type=float, default=0.1, help="add the rate of L1 regularization.")
 
 # optimization
 parser.add_argument('--num_workers', type=int, default=10, help='data loader num workers')

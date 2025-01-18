@@ -137,7 +137,7 @@ parser.add_argument('--use_amp', action='store_true', help='use automatic mixed 
 
 #regularization
 parser.add_argument('--regularizer', type=int, default=0, help="initiate regularizer")
-parser.add_argument('--regularization_rate', type=int, default=0.1, help="add the rate of L1 regularization.")
+parser.add_argument('--regularization_rate', type=float, default=0.1, help="add the rate of L1 regularization.")
 
 # GPU
 parser.add_argument('--use_gpu', type=bool, default=True, help='use gpu')
