@@ -99,12 +99,6 @@ parser.add_argument('--small_kernel_merged', type=str2bool, default=False, help=
 parser.add_argument('--call_structural_reparam', type=bool, default=False, help='structural_reparam after training')
 parser.add_argument('--use_multi_scale', type=str2bool, default=True, help='use_multi_scale fusion')
 
-# For WITRAN
-parser.add_argument('--WITRAN_deal', type=str, default='None', 
-    help='WITRAN deal data type, options:[None, standard]')
-parser.add_argument('--WITRAN_grid_cols', type=int, default=24, 
-    help='Numbers of data grid cols for WITRAN')
-
 
 # Formers 
 parser.add_argument('--embed_type', type=int, default=0, help='0: default 1: value embedding + temporal embedding + positional embedding 2: value embedding + temporal embedding 3: value embedding + positional embedding 4: value embedding')
@@ -140,6 +134,10 @@ parser.add_argument('--loss', type=str, default='mse', help='loss function')
 parser.add_argument('--lradj', type=str, default='type1', help='adjust learning rate')
 parser.add_argument('--pct_start', type=float, default=0.3, help='pct_start')
 parser.add_argument('--use_amp', action='store_true', help='use automatic mixed precision training', default=False)
+
+#regularization
+parser.add_argument('--regularizer', type=int, default=0, help="initiate regularizer")
+parser.add_argument('--regularization_rate', type=int, default=0.1, help="add the rate of L1 regularization.")
 
 # GPU
 parser.add_argument('--use_gpu', type=bool, default=True, help='use gpu')
