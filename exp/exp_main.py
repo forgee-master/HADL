@@ -1,6 +1,6 @@
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models import HaarDCT, DLinear, ModernTCN, NLinear, PatchTST, FreTS, SparseTSF, TSMixer, iTransformer, FrNet
+from models import HaarDCT, DLinear, ModernTCN, NLinear, PatchTST, FreTS, SparseTSF, iTransformer, FrNet
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
 
@@ -34,7 +34,6 @@ class Exp_Main(Exp_Basic):
             'PatchTST': PatchTST,
             'FreTS': FreTS,
             'SparseTSF': SparseTSF,
-            'TSMixer': TSMixer,
             'iTransformer': iTransformer,
             'ModernTCN': ModernTCN,
             'FrNet': FrNet,
@@ -155,6 +154,7 @@ class Exp_Main(Exp_Basic):
                 model_optim.zero_grad()
                 batch_x = batch_x.float().to(self.device)
                 batch_y = batch_y.float().to(self.device)
+                
                 if 'PEMS' in self.args.data or 'Solar' in self.args.data:
                     batch_x_mark = None
                     batch_y_mark = None
@@ -541,9 +541,9 @@ class Exp_Main(Exp_Basic):
                         batch_y = batch_y[:, -self.args.pred_len:, f_dim:].to(self.device)
                         
                         if self.args.regularizer:
-                        loss = criterion(outputs, batch_y) + self.args.regularization_rate * torch.mean(torch.abs(outputs))
-                    else:
-                        loss = criterion(outputs, batch_y)
+                            loss = criterion(outputs, batch_y) + self.args.regularization_rate * torch.mean(torch.abs(outputs))
+                        else:
+                            loss = criterion(outputs, batch_y)
                         train_loss.append(loss.item())
 
                     if (i + 1) % 100 == 0:
