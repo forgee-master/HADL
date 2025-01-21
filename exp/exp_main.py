@@ -1,6 +1,6 @@
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models import HADL, DLinear, ModernTCN, NLinear, PatchTST, FreTS, SparseTSF, iTransformer, FrNet
+from models import HADL, DLinear, ModernTCN, NLinear, PatchTST, FreTS, SparseTSF, iTransformer, FrNet, FITS
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
 
@@ -37,6 +37,7 @@ class Exp_Main(Exp_Basic):
             'iTransformer': iTransformer,
             'ModernTCN': ModernTCN,
             'FrNet': FrNet,
+            'FITS' : FITS
         }
         model = model_dict[self.args.model].Model(self.args).float()
 
@@ -99,6 +100,8 @@ class Exp_Main(Exp_Basic):
                             outputs = self.model(batch_x)
                     elif self.args.train_type.lower()=="tcn":
                             outputs = self.model(batch_x, batch_x_mark)
+                    elif self.args.train_type.lower()=="fits":
+                        outputs, low = self.model(batch_x)
                     else:
                         if self.args.output_attention:
                             outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)[0]
@@ -190,6 +193,8 @@ class Exp_Main(Exp_Basic):
                         outputs = self.model(batch_x)
                     elif self.args.train_type.lower()=="tcn":
                         outputs = self.model(batch_x, batch_x_mark)
+                    elif self.args.train_type.lower()=="fits":
+                        outputs, low = self.model(batch_x)
                         # outputs = self.model(batch_x)   #if decide not to use time stamp, use this code
                     else:
                         if self.args.output_attention:
@@ -312,6 +317,8 @@ class Exp_Main(Exp_Basic):
                         outputs = self.model(batch_x)
                     elif self.args.train_type.lower()=="tcn":
                         outputs = self.model(batch_x, batch_x_mark)
+                    elif self.args.train_type.lower()=="fits":
+                        outputs, low = self.model(batch_x)
                     else:
                         if self.args.output_attention:
                             outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)[0]
@@ -513,6 +520,8 @@ class Exp_Main(Exp_Basic):
                                 outputs = self.model(batch_x)
                             elif self.args.train_type.lower()=="tcn":
                                 outputs = self.model(batch_x, batch_x_mark)
+                            elif self.args.train_type.lower()=="fits":
+                                outputs, low = self.model(batch_x)
                             else:
                                 if self.args.output_attention:
                                     outputs = self.model(batch_x, batch_x_mark, dec_inp, batch_y_mark)[0]
