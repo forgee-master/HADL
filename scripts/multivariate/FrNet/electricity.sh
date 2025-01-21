@@ -6,26 +6,24 @@ if [ ! -d "./logs/LongForecasting" ]; then
     mkdir ./logs/LongForecasting
 fi
 seq_len=512
-model_name=FRNet
+model_name=FrNet
 
-root_path_name=./dataset/electricity/
+root_path_name=./dataset/
 data_path_name=electricity.csv
 model_id_name=Electricity
 data_name=custom
 
-random_seed=2021
 
 for pred_len in 96
 do
     python -u run_longExp.py \
-      --random_seed $random_seed \
       --is_training 1 \
       --root_path $root_path_name \
       --data_path $data_path_name \
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features M \
+      --train_type Linear --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 321 \
@@ -55,14 +53,13 @@ done
 for pred_len in 192
 do
     python -u run_longExp.py \
-      --random_seed $random_seed \
       --is_training 1 \
       --root_path $root_path_name \
       --data_path $data_path_name \
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features M \
+      --train_type Linear --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 321 \
@@ -92,14 +89,13 @@ done
 for pred_len in 336
 do
     python -u run_longExp.py \
-      --random_seed $random_seed \
       --is_training 1 \
       --root_path $root_path_name \
       --data_path $data_path_name \
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features M \
+      --train_type Linear --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 321 \
@@ -129,14 +125,13 @@ done
 for pred_len in 720
 do
     python -u run_longExp.py \
-      --random_seed $random_seed \
       --is_training 1 \
       --root_path $root_path_name \
       --data_path $data_path_name \
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features M \
+      --train_type Linear --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 321 \

@@ -20,7 +20,7 @@ do
 for pred_len in 192
 do    
     python -u run_noisetesting.py \
-      --is_training 1 \
+      --is_training 1 --noise_std  $noise_std \
       --root_path $root_path_name \
       --data_path $data_path_name \
       --model_id $model_id_name'_'$seq_len'_'$pred_len \
@@ -34,7 +34,7 @@ do
       --rank $rank \
       --patience 10 \
       --itr 1 --batch_size 32 --learning_rate 0.01 \ 
-	--regularizer 1
+	--regularizer 0
 done
 done
 done

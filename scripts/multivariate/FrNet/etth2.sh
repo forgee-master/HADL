@@ -6,7 +6,7 @@ fi
 
 
 seq_len=512
-model_name=FRNet
+model_name=FrNet
 
 root_path_name=./dataset/
 data_path_name=ETTh2.csv
@@ -22,7 +22,7 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features M \
+      --train_type Linear --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --train_type Linear \
@@ -59,7 +59,7 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features M \
+      --train_type Linear --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --train_type Linear \
@@ -96,7 +96,7 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features M \
+      --train_type Linear --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 7 \
@@ -132,7 +132,7 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features M \
+      --train_type Linear --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --train_type Linear \

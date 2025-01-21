@@ -18,7 +18,7 @@ do
 for pred_len in 192
 do    
     python -u run_noisetesting.py \
-      --is_training 1 \
+      --is_training 1 --noise_std  $noise_std \
       --individual 1 \
       --root_path $root_path_name \
       --data_path $data_path_name \

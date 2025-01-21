@@ -18,7 +18,7 @@ do
 for pred_len in 192
 do    
     python -u run_noisetesting.py \
-      --is_training 1 \
+      --is_training 1 --noise_std  $noise_std \
       --individual 1 \
       --root_path $root_path_name \
       --data_path $data_path_name \
@@ -32,7 +32,7 @@ do
       --train_epochs 50 \
       --patience 10 \
       --des 'Exp' \
-      --itr 1 --batch_size 32 --learning_rate 0.01
+      --itr 1 --batch_size 1 --learning_rate 0.01
 done
 done
 

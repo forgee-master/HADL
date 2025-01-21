@@ -40,7 +40,7 @@ do
       --train_epochs 50\
       --patience 10\
       --kernel_size 25\
-      --lradj type4\
+      --lradj type3\
       --pred_head_type 'truncation'\
       --aggregation_type 'avg'\
       --channel_attention 0\
@@ -77,7 +77,7 @@ do
       --train_epochs 50\
       --patience 10\
       --kernel_size 25\
-      --lradj type4\
+      --lradj type3\
       --pred_head_type 'truncation'\
       --aggregation_type 'avg'\
       --channel_attention 0\
@@ -114,7 +114,7 @@ do
       --train_epochs 50\
       --patience 10\
       --kernel_size 25\
-      --lradj type4\
+      --lradj type3\
       --pred_head_type 'truncation'\
       --aggregation_type 'avg'\
       --channel_attention 0\
@@ -151,7 +151,7 @@ do
       --train_epochs 50\
       --patience 10\
       --kernel_size 25\
-      --lradj type4\
+      --lradj type3\
       --pred_head_type 'truncation'\
       --aggregation_type 'linear'\
       --channel_attention 0\

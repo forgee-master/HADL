@@ -1,4 +1,4 @@
-#!/bin/sh
+export CUDA_VISIBLE_DEVICES=0
 
 if [ ! -d "./logs" ]; then
     mkdir ./logs
@@ -11,8 +11,8 @@ seq_len=512
 model_name=FrNet
 
 root_path_name=./dataset/
-data_path_name=weather.csv
-model_id_name=weather
+data_path_name=traffic.csv
+model_id_name=traffic
 data_name=custom
 
 for pred_len in 96 192 336 720
@@ -24,11 +24,11 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --train_type Linear --features M \
+      --train_type Linear --features S \
       --seq_len $seq_len \
       --pred_len $pred_len \
-      --enc_in 21 \
-      --e_layers 2 \
+      --enc_in 1 \
+      --e_layers 3 \
       --n_heads 8 \
       --d_model 64 \
       --d_ff 128 \
@@ -44,10 +44,9 @@ do
       --lradj type3\
       --pred_head_type 'linear'\
       --aggregation_type 'linear'\
-      --channel_attention 0\
+      --channel_attention 1\
       --global_freq_pred 0\
-      --period_list 144 72\
-      --emb 164\
-      --decomposition 0\
-      --itr 1 --batch_size 32 --learning_rate 0.0003 >logs/LongForecasting/$model_name'_'$model_id_name'_'$seq_len'_'$pred_len.log 
+      --period_list 24 12\
+      --emb 96\
+      --itr 1 --batch_size 16 --learning_rate 0.0003 >logs/LongForecasting/$model_name'_'$model_id_name'_'$seq_len'_'$pred_len.log 
 done
