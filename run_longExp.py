@@ -99,6 +99,12 @@ parser.add_argument('--small_kernel_merged', type=str2bool, default=False, help=
 parser.add_argument('--call_structural_reparam', type=bool, default=False, help='structural_reparam after training')
 parser.add_argument('--use_multi_scale', type=str2bool, default=True, help='use_multi_scale fusion')
 
+# FITS
+parser.add_argument('--train_mode', type=int,default=0)
+parser.add_argument('--cut_freq', type=int,default=0)
+parser.add_argument('--base_T', type=int,default=24)
+parser.add_argument('--H_order', type=int,default=2)
+
 
 # Formers 
 parser.add_argument('--embed_type', type=int, default=0, help='0: default 1: value embedding + temporal embedding + positional embedding 2: value embedding + temporal embedding 3: value embedding + positional embedding 4: value embedding')
