@@ -55,7 +55,7 @@ output_tensor = model(input_tensor)
 ```
 
 # Results
-<img src="images/Multivariate_results.png" alt="Multivariate Results" width=600/>
+<img src="images/Multivariate_results.png" alt="Multivariate Results" width=800/>
 
 
 # Acknowledgement
