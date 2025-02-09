@@ -3,7 +3,7 @@
 ## Overview
 HADL is a PyTorch-based framework for Long-Term Time Series Forecasting (LTSF), designed for noise robustness, efficiency, and accuracy. It integrates Discrete Wavelet Transform (DWT) with a Haar wavelet for noise reduction, Discrete Cosine Transform (DCT) for feature extraction, and a low-rank layer for efficient low parameterized forecasting.
 
-<img src="HADL_architecture.png" alt="Image of HADL architecture" width=300/>
+<img src="HADL_architecture.png" alt="Image of HADL architecture" width=800/>
 
 ## Key Features
 - **Haar Wavelet (DWT)**: Reduces noise and compresses the input, enabling a lightweight model with fewer parameters.
