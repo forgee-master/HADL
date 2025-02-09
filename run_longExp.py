@@ -37,8 +37,16 @@ parser.add_argument('--pred_len', type=int, default=96, help='prediction sequenc
 # DLinear
 parser.add_argument('--individual', type=int, default=0, help='individual head; True 1 False 0') # Used by PatchTST too.
 
-# Haar-DCT
-parser.add_argument('--rank', type=int, default=50, help='period length')
+# HADL
+parser.add_argument('--rank', type=int, default=50, help='rank of low rank matrix')
+parser.add_argument('--enable_lowrank', type=int, default=1, help='enable low rank approximation; True 1 False 0')
+parser.add_argument('--enable_Haar', type=int, default=1, help='enable Haar wavelet transformation; True 1 False 0')
+parser.add_argument('--enable_DCT', type=int, default=1, help='enable DCT transformation; True 1 False 0')
+parser.add_argument('--enable_iDCT', type=int, default=0, help='enable inverse DCT transformation; True 1 False 0')
+parser.add_argument('--bias', type=int, default=1, help='enable bias; True 1 False 0')
+#regularization
+parser.add_argument('--regularizer', type=int, default=0, help="initiate regularizer; True 1 False 0")
+parser.add_argument('--regularization_rate', type=float, default=0.1, help="add the rate of L1 regularization.")
 
 # PatchTST
 parser.add_argument('--fc_dropout', type=float, default=0.05, help='fully connected dropout')
@@ -55,12 +63,6 @@ parser.add_argument('--kernel_size', type=int, default=25, help='decomposition-k
 # SparseTSF
 parser.add_argument('--period_len', type=int, default=24, help='period length')
 parser.add_argument('--model_type', default='linear', help='model type: linear/mlp')
-
-#TSMixer
-# parser.add_argument("--norm_type", type=str, default="batch", help="Norm can be batch or layer")
-# parser.add_argument("--ff_dim", type=int, default=64)
-# parser.add_argument("--normalize_before", type=bool, default=True)
-# parser.add_argument("--num_blocks_tsmixer", type=int, default=2)
 
 
 # iTransformer
@@ -99,12 +101,6 @@ parser.add_argument('--small_kernel_merged', type=str2bool, default=False, help=
 parser.add_argument('--call_structural_reparam', type=bool, default=False, help='structural_reparam after training')
 parser.add_argument('--use_multi_scale', type=str2bool, default=True, help='use_multi_scale fusion')
 
-# FITS
-parser.add_argument('--train_mode', type=int,default=0)
-parser.add_argument('--cut_freq', type=int,default=0)
-parser.add_argument('--base_T', type=int,default=24)
-parser.add_argument('--H_order', type=int,default=2)
-
 
 # Formers 
 parser.add_argument('--embed_type', type=int, default=0, help='0: default 1: value embedding + temporal embedding + positional embedding 2: value embedding + temporal embedding 3: value embedding + positional embedding 4: value embedding')
@@ -128,9 +124,6 @@ parser.add_argument('--activation', type=str, default='gelu', help='activation')
 parser.add_argument('--output_attention', action='store_true', default=False, help='whether to output attention in ecoder')
 parser.add_argument('--do_predict', action='store_true', help='whether to predict unseen future data')
 
-#regularization
-parser.add_argument('--regularizer', type=int, default=0, help="initiate regularizer")
-parser.add_argument('--regularization_rate', type=float, default=0.1, help="add the rate of L1 regularization.")
 
 # optimization
 parser.add_argument('--num_workers', type=int, default=10, help='data loader num workers')
