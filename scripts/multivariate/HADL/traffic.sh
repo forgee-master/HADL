@@ -29,11 +29,20 @@ do
     --pred_len $pred_len \
     --rank $rank \
     --enc_in 862 \
-    --train_epochs 50 \
-    --patience 10 \
-    --des 'Exp' \
-     --regularizer 1 --regularization_rate 0.1 \
-    --itr 1 --batch_size 32 --learning_rate 0.01 
+     --train_epochs 5 \
+      --rank $rank \
+      --bias 1 \
+      --enable_Haar 1 \
+      --enable_DCT 1 \
+      --enable_lowrank 1 \
+      --enable_iDCT 0 \
+      --patience 10 \
+      --des 'Exp' \
+      --regularizer 1 \
+      --regularization_rate 0.1 \
+      --itr 1 \
+      --batch_size 32 \
+      --learning_rate 0.01
 done
 done
 
