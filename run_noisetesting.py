@@ -37,8 +37,17 @@ parser.add_argument('--pred_len', type=int, default=96, help='prediction sequenc
 # DLinear
 parser.add_argument('--individual', type=int, default=0, help='individual head; True 1 False 0') # Used by PatchTST too.
 
-# Haar-DCT
-parser.add_argument('--rank', type=int, default=50, help='period length')
+# HADL
+parser.add_argument('--rank', type=int, default=50, help='rank of low rank matrix')
+parser.add_argument('--enable_lowrank', type=int, default=1, help='enable low rank approximation; True 1 False 0')
+parser.add_argument('--enable_Haar', type=int, default=1, help='enable Haar wavelet transformation; True 1 False 0')
+parser.add_argument('--enable_DCT', type=int, default=1, help='enable DCT transformation; True 1 False 0')
+parser.add_argument('--enable_iDCT', type=int, default=0, help='enable inverse DCT transformation; True 1 False 0')
+parser.add_argument('--bias', type=int, default=1, help='enable bias; True 1 False 0')
+#regularization
+parser.add_argument('--regularizer', type=int, default=0, help="initiate regularizer; True 1 False 0")
+parser.add_argument('--regularization_rate', type=float, default=0.1, help="add the rate of L1 regularization.")
+
 
 # PatchTST
 parser.add_argument('--fc_dropout', type=float, default=0.05, help='fully connected dropout')
@@ -134,10 +143,6 @@ parser.add_argument('--loss', type=str, default='mse', help='loss function')
 parser.add_argument('--lradj', type=str, default='type1', help='adjust learning rate')
 parser.add_argument('--pct_start', type=float, default=0.3, help='pct_start')
 parser.add_argument('--use_amp', action='store_true', help='use automatic mixed precision training', default=False)
-
-#regularization
-parser.add_argument('--regularizer', type=int, default=0, help="initiate regularizer")
-parser.add_argument('--regularization_rate', type=float, default=0.1, help="add the rate of L1 regularization.")
 
 # GPU
 parser.add_argument('--use_gpu', type=bool, default=True, help='use gpu')

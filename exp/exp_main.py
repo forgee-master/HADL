@@ -493,8 +493,10 @@ class Exp_Main(Exp_Basic):
                 self.model.train()
                 epoch_time = time.time()
                 for i, (batch_x, batch_y, batch_x_mark, batch_y_mark) in enumerate(train_loader):
+                    ## Add Noise to train_data
                     noise = torch.randn_like(batch_x) * self.args.noise_std
                     batch_x = batch_x + noise
+                    
                     iter_count += 1
                     model_optim.zero_grad()
                     batch_x = batch_x.float().to(self.device)
