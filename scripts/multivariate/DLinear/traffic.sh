@@ -24,12 +24,13 @@ do
       --model_id $model_id_name'_'$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features M --train_type Linear \
+      --features M \
+      --train_type Linear \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 862 \
-      --train_epochs 50 \
-      --patience 10 \
+      --train_epochs 100 \
+      --patience 20 \
       --des 'Exp' \
       --itr 1 --batch_size 32 --learning_rate 0.01
 done

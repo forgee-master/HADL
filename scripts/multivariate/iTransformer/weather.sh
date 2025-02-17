@@ -39,8 +39,8 @@ do
       --c_out 21 \
       --d_model $d_model \
       --d_ff $d_ff \
-      --train_epochs 50 \
-      --patience 10 \
+      --train_epochs 100 \
+      --patience 20 \
       --des 'Exp' \
       --itr 1 --batch_size 32 --learning_rate 0.0001
 done

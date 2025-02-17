@@ -22,7 +22,8 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --train_type Linear --features M \
+      --train_type Linear \
+      --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --train_type Linear \
@@ -37,8 +38,8 @@ do
       --patch_len 16\
       --stride 8\
       --des 'Exp' \
-      --train_epochs 50\
-      --patience 10\
+      --train_epochs 100\
+      --patience 20\
       --kernel_size 25\
       --lradj type3\
       --pred_head_type 'truncation'\
@@ -59,7 +60,8 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --train_type Linear --features M \
+      --train_type Linear \
+      --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --train_type Linear \
@@ -74,8 +76,8 @@ do
       --patch_len 16\
       --stride 8\
       --des 'Exp' \
-      --train_epochs 50\
-      --patience 10\
+      --train_epochs 100\
+      --patience 20\
       --kernel_size 25\
       --lradj type3\
       --pred_head_type 'truncation'\
@@ -96,7 +98,8 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --train_type Linear --features M \
+      --train_type Linear \
+      --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 7 \
@@ -110,8 +113,8 @@ do
       --patch_len 16\
       --stride 8\
       --des 'Exp' \
-      --train_epochs 50\
-      --patience 10\
+      --train_epochs 100\
+      --patience 20\
       --kernel_size 25\
       --lradj type3\
       --pred_head_type 'truncation'\
@@ -132,7 +135,8 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --train_type Linear --features M \
+      --train_type Linear \
+      --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --train_type Linear \
@@ -147,8 +151,8 @@ do
       --patch_len 16\
       --stride 8\
       --des 'Exp' \
-      --train_epochs 50\
-      --patience 10\
+      --train_epochs 100\
+      --patience 20\
       --kernel_size 25\
       --lradj type1\
       --pred_head_type 'truncation'\

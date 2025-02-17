@@ -30,14 +30,14 @@ do
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 7 \
-      --train_epochs 5 \
+      --train_epochs 100 \
       --rank $rank \
       --bias 1 \
       --enable_Haar 1 \
       --enable_DCT 1 \
       --enable_lowrank 1 \
       --enable_iDCT 0 \
-      --patience 10 \
+      --patience 20 \
       --des 'Exp' \
       --regularizer 1 \
       --regularization_rate 0.1 \
