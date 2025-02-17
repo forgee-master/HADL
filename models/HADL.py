@@ -120,19 +120,31 @@ class Model(nn.Module):
             in_len = self.seq_len  # No Haar decomposition, use full sequence length
 
         # Initialize prediction layer(s)
-        layer_cls = LowRank if self.enable_lowrank else nn.Linear
         if self.individual:
-            self.pred_layer = nn.ModuleList([
-            layer_cls(in_features=in_len, 
-                      out_features=self.pred_len, 
-                      rank=self.rank, 
-                      bias=self.bias)
-            for _ in range(self.channels)
-            ])
+            if self.enable_lowrank:
+                self.pred_layer = nn.ModuleList([
+                LowRank(in_features=in_len, 
+                        out_features=self.pred_len, 
+                        rank=self.rank, 
+                        bias=self.bias)
+                for _ in range(self.channels)
+                ])
+            else:
+                self.pred_layer = nn.ModuleList([
+                nn.Linear(in_features=in_len, 
+                        out_features=self.pred_len, 
+                        bias=self.bias)
+                for _ in range(self.channels)
+                ])
         else:
-            self.pred_layer = layer_cls(in_features=in_len, 
+            if self.enable_lowrank:
+                self.pred_layer = LowRank(in_features=in_len, 
                                         out_features=self.pred_len, 
                                         rank=self.rank, 
+                                        bias=self.bias)
+            else:
+                self.pred_layer = nn.Linear(in_features=in_len, 
+                                        out_features=self.pred_len, 
                                         bias=self.bias)
 
     def forward(self, x):
