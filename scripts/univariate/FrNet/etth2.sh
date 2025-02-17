@@ -22,10 +22,10 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --train_type Linear --features S \
+      --train_type Linear \
+      --features S \
       --seq_len $seq_len \
       --pred_len $pred_len \
-      --train_type Linear \
       --enc_in 1 \
       --e_layers 1 \
       --n_heads 4 \
@@ -59,7 +59,8 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --train_type Linear --features S \
+      --train_type Linear \
+      --features S \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --train_type Linear \
@@ -96,7 +97,8 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --train_type Linear --features S \
+      --train_type Linear \
+      --features S \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 1 \
@@ -132,7 +134,8 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --train_type Linear --features S \
+      --train_type Linear \
+      --features S \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --train_type Linear \
